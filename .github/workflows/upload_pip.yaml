@@ -39,6 +39,8 @@ jobs:
       - name: Create Artifacts
         run: |
           python setup.py bdist_wheel sdist
-      - name: Upload artifacts to pipy
-        run: |
-          twine upload dist/*
+      - name: Publish distribution 📦 to PyPI
+          if: startsWith(github.event.ref, 'refs/tags')
+          uses: pypa/gh-action-pypi-publish@master
+          with:
+            password: ${{ secrets.pypi_password }}
