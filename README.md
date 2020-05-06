@@ -11,6 +11,7 @@ Get a range of hours:
 to be supported
 
 How to install:
+todo # need to upload this as part of pipy
 ```shell script
 pip install daterange==1.0.0
 ```
