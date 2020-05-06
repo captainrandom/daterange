@@ -10,3 +10,7 @@ Cargo.lock
 **/*.rs.bk
 .idea
 __pycache__/
+.eggs
+*.egg-info
+build/
+dist/

@@ -1,18 +1,3 @@
-#!/bin/bash/python
-
-import argparse
-
-import pendulum
-
-def parse_args(args=None):
-    date_parser = lambda dt: pendulum.parse(dt).date()
-    parser = argparse.ArgumentParser()
-    parser.add_argument('-s', '--start-date', required=True, type=date_parser)
-    parser.add_argument('-e', '--end-date', required=True, type=date_parser)
-    parser.add_argument('-o', '--sort-order', choices=['asc', 'desc'], default='asc')
-    return parser.parse_args(args=args)
-
-
 def generate_dates(start_date, end_date, sort_order):
     """
     This should be an inclusive date range
@@ -39,8 +24,3 @@ def find_current_date_and_direction(end_date, sort_order, start_date):
 def generate_date_range_and_output(args):
     for date in generate_dates(args.start_date, args.end_date, args.sort_order):
         print(date, end=' ')
-
-
-if __name__ == '__main__':
-    args = parse_args()
-    generate_date_range_and_output(args)
