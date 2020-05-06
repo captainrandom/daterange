@@ -2,7 +2,7 @@ from setuptools import find_packages, setup
 
 setup(
     name='daterange.py',
-    version='1.0',
+    version='1.0.0',
     description='A cli too that generates a range of dates or timestamps',
     author='Mark Jackson',
     packages=find_packages(),
