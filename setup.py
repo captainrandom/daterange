@@ -1,11 +1,11 @@
 from setuptools import find_packages, setup
 
 setup(
-    name='daterange.py',
+    name='daterange',
     version='0.0.1',
     description='A cli too that generates a range of dates or timestamps',
     author='Mark Jackson',
-    url="https://https://github.com/captainrandom/daterange",
+    url="https://github.com/captainrandom/daterange",
     classifiers=[
         'Development Status :: 3 - Alpha',
         'Intended Audience :: Developers',  # TODO: need to come back and change this at some point
