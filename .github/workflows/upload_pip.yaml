@@ -1,0 +1,44 @@
+on:
+  push:
+    branches:
+      - master
+    tags:
+      - 'v*'
+name: Upload PiPy
+jobs:
+  test:
+    name: Run tests
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python 3.8
+      uses: actions/setup-python@v1
+      with:
+        python-version: 3.8
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install pytest
+        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+    - name: Test with pytest
+      run: |
+        python setup.py test
+  upload_artifact:
+    name: Upload Artifacts PiPy
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python 3.8
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.8
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip setuptools wheel twine
+      - name: Create Artifacts
+        run: |
+          python setup.py bdist_wheel sdist
+      - name: Upload artifacts to pipy
+        run: |
+          twine upload dist/*
