@@ -4,7 +4,7 @@ on:
       - master
     tags:
       - 'v*'
-name: Upload PiPy
+name: Upload PyPi
 jobs:
   test:
     name: Run tests
@@ -24,7 +24,7 @@ jobs:
       run: |
         python setup.py test
   upload_artifact:
-    name: Upload Artifacts PiPy
+    name: Upload Artifacts PyPi
     needs: test
     runs-on: ubuntu-latest
     steps:

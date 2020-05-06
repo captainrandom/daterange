@@ -1,8 +1,8 @@
 from setuptools import find_packages, setup
 
 setup(
-    name='date-range',
-    version='0.0.2',
+    name='date-range-cli',
+    version='0.0.3',
     description='A cli too that generates a range of dates or timestamps',
     author='Mark Jackson',
     url="https://github.com/captainrandom/daterange",
