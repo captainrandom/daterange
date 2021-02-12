@@ -1,6 +1,14 @@
 # date-range-cli
 A cli tool that iterates through a range of dates
 
+## How to install
+
+```sh
+pip install date-range-cli
+```
+
+
+## Usage
 Get a range of dates:
 ```sh
 daterange -s 2020-01-01 -e 2020-01-05
@@ -19,12 +27,6 @@ daterange -s 2020-01-01 -e 2020-01-05 -f %m_%d_%Y
 01_01_2020 01_02_2020 01_03_2020 01_04_2020 01_05_2020
 ```
 The format follows strftime defined by python: https://docs.python.org/3/library/datetime.html#strftime-strptime-behavior
-
-How to install:
-
-```sh
-pip install date-range-cli
-```
 
 ### Todos
 
