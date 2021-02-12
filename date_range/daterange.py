@@ -9,9 +9,15 @@ def parse_args(args=None):
     date_parser = lambda dt: pendulum.parse(dt).date()
     parser = argparse.ArgumentParser()
     parser.add_argument('-s', '--start-date', required=True, type=date_parser)
-    parser.add_argument('-e', '--end-date', required=True, type=date_parser)
+    parser.add_argument('-e', '--end-date', type=date_parser)
     parser.add_argument('-o', '--sort-order', choices=['asc', 'desc'], default='asc')
-    return parser.parse_args(args=args)
+    parser.add_argument('-f', '--output-format', type=str)
+
+    args = parser.parse_args(args=args)
+    if args.end_date is None:
+        args.end_date = pendulum.now().date()
+
+    return args
 
 
 def main():

@@ -50,9 +50,23 @@ def test_print_to_screen(capsys):
     args.start_date = start_date
     args.end_date = end_date
     args.sort_order = 'asc'
+    args.output_format = None
 
     generate_date_range_and_output(args)
     printed_ouptut = capsys.readouterr().out
     expected_output = '2019-01-10 2019-01-11 2019-01-12 2019-01-13 '
+    assert printed_ouptut == expected_output
+
+
+def test_print_to_screen_with_formatting(capsys):
+    args = MagicMock()
+    args.start_date = start_date
+    args.end_date = end_date
+    args.sort_order = 'asc'
+    args.output_format = '%m_%d_%Y'
+
+    generate_date_range_and_output(args)
+    printed_ouptut = capsys.readouterr().out
+    expected_output = '01_10_2019 01_11_2019 01_12_2019 01_13_2019 '
     assert printed_ouptut == expected_output
 

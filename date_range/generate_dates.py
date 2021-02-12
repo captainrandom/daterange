@@ -23,4 +23,5 @@ def find_current_date_and_direction(end_date, sort_order, start_date):
 
 def generate_date_range_and_output(args):
     for date in generate_dates(args.start_date, args.end_date, args.sort_order):
-        print(date, end=' ')
+        date_str = date.strftime(args.output_format) if args.output_format is not None else date.isoformat()
+        print(date_str, end=' ')
